@@ -1,4 +1,4 @@
-# RHINO-Arduino
+# rhino-arduino
 
 switches_tempsensor2: Code to control the switches, and to output the temperatures from the sensors to serial.
 
