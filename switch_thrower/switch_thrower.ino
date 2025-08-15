@@ -179,32 +179,16 @@
      Serial.println("Invalid input length");
      return; 
     }   
+ 
+    int x = -1, y = -1, z = -1;
 
-//read data until newline, store as serial input
-      Serial.print("Input: ");                      //print this
-      Serial.print(serialInput);
-      Serial.print("\n");
-
-    // serialIn is going to be of form txtyez, need to seperate
-
-    String tws1 = serialInput.substring(0,2); // tws1 is the first two way switch
-    String tws2 = serialInput.substring(2,4); //tws2 is second two way switch
-    String ews = serialInput.substring(4,6); // ews is eight way switch
-
-    // convert the number in each substring into an integer and pass it to the relevant objects
-
-    int x = tws1[1] - '0';  
-    int y = tws2[1] - '0';      // converts between ascii numerical value to actual integer numerical value
-    int z = ews[1] - '0';  
-
-    Serial.print(x);
-    Serial.print(y);
-    Serial.print(z);
-    Serial.print("\n");
+    sscanf(serialInput.c_str(), "t%d" "t%d" "e%d", &x, &y, &z); 
 
     tw1.setSwitchState(x);
-    tw2.setSwitchState(y);    //set switch state for the switches 
+    tw2.setSwitchState(y);
     ew1.setSwitchState(z);
-
     }
+
+    delay(100);
+
   }
